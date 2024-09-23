@@ -12,3 +12,11 @@ services:
     image: registry.leaders.estate/idioms:arm64
     user: "1000:1000"
     init: true
+    volumes:
+      - nginx_cache:/var/cache/nginx
+    tmpfs:
+      - /tmp
+      - /var/run
+
+volumes:
+  nginx_cache:
