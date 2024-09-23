@@ -10,7 +10,8 @@ services:
     
   server:
     image: registry.leaders.estate/idioms:arm64
-    user: "1000:1000"
+    #need root to setup nginx
+    #user: "1000:1000"
     init: true
     volumes:
       - nginx_cache:/var/cache/nginx
