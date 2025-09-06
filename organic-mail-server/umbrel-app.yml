@@ -1,0 +1,41 @@
+manifestVersion: 1
+id: organic-mail-server
+name: Organic Mail Server
+tagline: Video messaging notification server
+icon: https://organicmail.co/user/pages/01.home/logo-large.png
+category: Communication
+version: "1.0.0"
+port: 3000
+description: >-
+  Organic Mail Server is a high-performance Go-based notification server for the Organic Mail video messaging app.
+
+  Features:
+  - Firebase Cloud Messaging (FCM) integration
+  - RESTful API for sending notifications
+  - Built-in health monitoring
+  - Docker containerized deployment
+  - ~10x faster startup than Node.js version
+  - ~2-3x lower memory usage
+
+  This server handles push notifications for the Organic Mail Flutter app, enabling instant delivery of video message notifications to users across iOS and Android platforms.
+
+developer: Jonathan Leaders
+website: https://organicmail.co
+submitter: Jonathan Leaders
+submission: https://github.com/jleaders/organic-mail-server-go
+repo: https://github.com/jleaders/organic-mail-server-go
+support: https://github.com/jleaders/organic-mail-server-go/issues
+gallery:
+  - https://organicmail.co/user/pages/images/screenshot1.png
+  - https://organicmail.co/user/pages/images/screenshot2.png
+releaseNotes: >-
+  Initial release of the Go-based Organic Mail Server with significant performance improvements:
+  - 10x faster startup time compared to Node.js version
+  - 2-3x lower memory usage
+  - 5x higher request throughput
+  - Thread-safe token management
+  - Compile-time type safety
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""

@@ -1,0 +1,41 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      # The format here is: <app-id>_<docker-service-name>_1
+      APP_HOST: organic-mail-server_server_1
+      APP_PORT: 3000
+      PROXY_AUTH_ADD: "false"
+    
+  server:
+    image: 192.168.0.186:5000/organic-mail-server:arm64
+    container_name: organic-mail-server
+    restart: unless-stopped
+    user: "1000:1000"
+    init: true
+    
+    # Environment variables for configuration
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    
+    # Volumes for persistent data
+    volumes:
+      - firebase_data:/app/data
+    
+    # Health check
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 3s
+      start_period: 5s
+      retries: 3
+    
+    # Temporary filesystems for better performance
+    tmpfs:
+      - /tmp
+      - /var/run
+
+volumes:
+  firebase_data:
