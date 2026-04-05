@@ -1,0 +1,32 @@
+manifestVersion: 1
+id: nemoclaw
+name: NemoClaw
+tagline: Secure AI agent sandbox with managed local inference
+icon: https://avatars.githubusercontent.com/u/1728152?s=200&v=4
+category: AI
+version: "1.0.0"
+port: 18789
+description: >-
+  NemoClaw is NVIDIA's open-source stack for running OpenClaw AI agents
+  securely inside an OpenShell sandbox. It provides a sandboxed environment
+  for autonomous agents with strict network, filesystem, and inference
+  routing policies.
+
+  This app is configured to use a local OpenAI-compatible inference endpoint
+  (e.g. llama.cpp, vLLM, or Ollama) — no NVIDIA API key required.
+
+  Note: Alpha software. APIs and behaviour may change without notice.
+developer: NVIDIA
+website: https://github.com/NVIDIA/NemoClaw
+submitter: Jonathan Leaders
+submission: https://github.com/NVIDIA/NemoClaw
+repo: https://github.com/NVIDIA/NemoClaw
+support: https://github.com/NVIDIA/NemoClaw/issues
+gallery: []
+releaseNotes: >-
+  Initial Umbrel packaging. Uses local OpenAI-compatible inference via
+  area-51.local with gemma-4-31b-q4_k_m-area-51.
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""

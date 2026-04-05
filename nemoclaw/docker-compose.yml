@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  nemoclaw:
+    build:
+      context: https://github.com/NVIDIA/NemoClaw.git#main
+      args:
+        NEMOCLAW_MODEL: "gemma-4-31b-q4_k_m-area-51"
+        NEMOCLAW_PROVIDER_KEY: "local"
+        NEMOCLAW_PRIMARY_MODEL_REF: "gemma-4-31b-q4_k_m-area-51"
+        NEMOCLAW_INFERENCE_BASE_URL: "http://area-51.local:11435/v1"
+        NEMOCLAW_INFERENCE_API: "openai-completions"
+        CHAT_UI_URL: "http://${DEVICE_DOMAIN_NAME:-umbrel.local}:18789"
+        NEMOCLAW_DISABLE_DEVICE_AUTH: "1"
+    ports:
+      - "18789:18789"
+    environment:
+      - OPENAI_API_KEY=dummy
+    volumes:
+      - ${APP_DATA_DIR:-.}/data:/sandbox/.openclaw-data
+    restart: unless-stopped
+    extra_hosts:
+      - "area-51.local:host-gateway"
