@@ -1,0 +1,31 @@
+manifestVersion: 1.1
+id: hermes-a2a
+category: ai
+name: Hermes Agent (A2A)
+version: "2026.8.3"
+tagline: Hermes agent with the A2A endpoint exposed
+description: >-
+  Fork of the official Hermes Agent app with one change: it publishes the
+  A2A endpoint (port 9900) so other agents on the network can reach it.
+  Umbrel's one-public-port-per-app model otherwise hides A2A, and manual
+  compose edits are wiped on every app update.
+
+  This app reuses the data directory of the existing official hermes-agent
+  install (/home/umbrel/umbrel/app-data/hermes-agent/data/hermes), so the
+  agent's config, SOUL.md, sessions, and skills carry over untouched.
+
+  Do not run this app and the official hermes-agent at the same time: they
+  share one Telegram bot token.
+developer: Jonathan Leaders
+website: https://leadersandco.com
+dependencies: []
+repo: https://github.com/jleaders/leadersandco-apps
+support: https://github.com/jleaders/leadersandco-apps/issues
+port: 18790
+path: "/chat"
+defaultUsername: ""
+defaultPassword: ""
+releaseNotes: >-
+  Initial import of Hermes Agent v2026.8.3 with the A2A port (9900) published.
+submitter: Jonathan Leaders
+submission: https://github.com/jleaders/leadersandco-apps

@@ -1,0 +1,30 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: hermes-a2a_web_1
+      APP_PORT: 18789
+
+  web:
+    image: >-
+      ghcr.io/getumbrel/hermes-agent-umbrel:v2026.8.3@sha256:e5cf8b10ff7df25233bf57ec155433d73fefc0a92444ff18de56ec84b68b8a85
+    restart: on-failure
+    stop_grace_period: 1m
+    # Reuses the existing official install's data directory: SOUL.md, .env,
+    # config.yaml, sessions, and skills all live there and carry over as-is.
+    volumes:
+      - /home/umbrel/umbrel/app-data/hermes-agent/data/hermes:/opt/data
+    environment:
+      HERMES_UID: "1000"
+      HERMES_GID: "1000"
+      HERMES_DASHBOARD: "1"
+      HERMES_DASHBOARD_PORT: "18789"
+      HERMES_UMBREL_APP_PROXY_AUTH: "1"
+      HERMES_TUI_DIR: "/app/umbrel-tui"
+      HERMES_UPSTREAM_TUI_ENTRY: "/opt/hermes/ui-tui/dist/entry.js"
+      HERMES_GATEWAY_BOOTSTRAP_STATE: "running"
+    command: ["gateway", "run"]
+    # The whole point of this fork: publish the A2A endpoint.
+    ports:
+      - "9900:9900"
